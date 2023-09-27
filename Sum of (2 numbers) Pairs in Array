@@ -1,1 +1,31 @@
+import Foundation
 
+let numbers = [1, 3, 4,5, 6, 7]//, 9, 23, 44,57, 67, 76, 90]
+
+func  sumOfTwoNumbers(array:[Int], target: Int) -> (Bool, Int, Int) {
+    
+if  array.count == 0 {
+    return(false, -1, -1)
+}
+
+
+for outerIndex in 0..<array.count {
+    
+    for innerIndex in (outerIndex + 1)..<array.count {
+        
+        if (array[outerIndex] + array[innerIndex]) == target {
+            return (true, outerIndex, innerIndex)
+        }
+        
+    }
+}
+ return (false, -1, -1)
+
+}
+// Sum of (2 numbers) Pairs in Array first match
+let result = sumOfTwoNumbers(array: numbers, target: 7)
+if result.1 > -1 {
+    print("Result status -> Found at Index: \(result.1)th  Value: \(result.2)!!!")
+} else {
+    print("Result not found !!!")
+}
